@@ -1,0 +1,27 @@
+{
+  "name": "api-test-demo",
+  "version": "1.0.0",
+  "description": "A demo API Test Project using Supertest, mocha and Chai",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./tests/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Faz540/api-test-demo.git"
+  },
+  "keywords": [],
+  "author": "Paul J. Farrell",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "mocha": "^9.1.3",
+    "nock": "^13.1.4",
+    "supertest": "^6.1.6"
+  },
+  "bugs": {
+    "url": "https://github.com/Faz540/api-test-demo/issues"
+  },
+  "homepage": "https://github.com/Faz540/api-test-demo#readme"
+}
