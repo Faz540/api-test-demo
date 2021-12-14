@@ -1,7 +1,7 @@
 {
   "name": "api-test-demo",
   "version": "1.0.0",
-  "description": "A demo API Test Project using Supertest, mocha and Chai",
+  "description": "A demo API Test Project using Supertest, Mocha and Chai",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./tests/*.spec.js"

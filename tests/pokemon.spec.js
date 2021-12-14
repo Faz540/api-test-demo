@@ -1,6 +1,6 @@
 // https://pokeapi.co/docs/v2#pokemon
 
-const request = require("supertest");
+const request = require("supertest")("https://pokeapi.co");
 const expect = require("chai").expect;
 
 // Response var gets populated after request is sent.
@@ -9,8 +9,7 @@ let response;
 describe("GET */api/v2/pokemon", function () {
     describe("No 'limit' Query Parameter Provided", function () {
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get("/api/v2/pokemon")
+            response = await request.get("/api/v2/pokemon");
         });
         it("returns a Status Code of 200", function () {
             expect(response.status).to.eql(200);
@@ -28,8 +27,7 @@ describe("GET */api/v2/pokemon", function () {
     describe("'limit' Query Parameter Provided", function () {
         const limit = 9;
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get(`/api/v2/pokemon?limit=${limit}`)
+            response = await request.get(`/api/v2/pokemon?limit=${limit}`)
         });
         it("returns a Status Code of 200", function () {
             expect(response.status).to.eql(200);
@@ -50,8 +48,7 @@ describe("GET */api/v2/pokemon", function () {
     describe("'limit' Query Parameter Provided as 0", function () {
         const limit = 0;
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get(`/api/v2/pokemon?limit=${limit}`)
+            response = await request.get(`/api/v2/pokemon?limit=${limit}`)
         });
         it("returns a Status Code of 200", function () {
             expect(response.status).to.eql(200);
@@ -79,8 +76,7 @@ describe("GET */api/v2/pokemon/:name", function () {
             "height": 4
         };
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get(`/api/v2/pokemon/${pkmnData.name}`)
+            response = await request.get(`/api/v2/pokemon/${pkmnData.name}`)
         });
         it("returns a Status Code of 200", function () {
             expect(response.status).to.eql(200);
@@ -105,8 +101,7 @@ describe("GET */api/v2/pokemon/:name", function () {
             "name": "cheese",
         };
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get(`/api/v2/pokemon/${pkmnData.name}`)
+            response = await request.get(`/api/v2/pokemon/${pkmnData.name}`)
         });
         it("returns a Status Code of 404", function () {
             expect(response.status).to.eql(404);
@@ -117,8 +112,7 @@ describe("GET */api/v2/pokemon/:name", function () {
             "name": "Cubone",
         };
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get(`/api/v2/pokemon/${pkmnData.name}`)
+            response = await request.get(`/api/v2/pokemon/${pkmnData.name}`)
         });
         it("returns a Status Code of 404", function () {
             expect(response.status).to.eql(404);
@@ -129,8 +123,7 @@ describe("GET */api/v2/pokemon/:name", function () {
             "name": "osselait",
         };
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get(`/api/v2/pokemon/${pkmnData.name}`)
+            response = await request.get(`/api/v2/pokemon/${pkmnData.name}`)
         });
         it("returns a Status Code of 404", function () {
             expect(response.status).to.eql(404);
@@ -146,8 +139,7 @@ describe("GET */api/v2/pokemon/:id", function () {
             "height": 4
         };
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get(`/api/v2/pokemon/${pkmnData.id}`)
+            response = await request.get(`/api/v2/pokemon/${pkmnData.id}`)
         });
         it("returns a Status Code of 200", function () {
             expect(response.status).to.eql(200);
@@ -172,8 +164,7 @@ describe("GET */api/v2/pokemon/:id", function () {
             "id": 0,
         };
         before(async function () {
-            response = await request("https://pokeapi.co")
-                .get(`/api/v2/pokemon/${pkmnData.id}`)
+            response = await request.get(`/api/v2/pokemon/${pkmnData.id}`)
         });
         it("returns a Status Code of 404", function () {
             expect(response.status).to.eql(404);
